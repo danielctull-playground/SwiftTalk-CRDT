@@ -37,6 +37,9 @@ struct SessionView: View {
             .onChange(of: counter) { newValue in
                 try! session.send(newValue)
             }
+            .onChange(of: session.connected) { _ in
+                try! session.send(counter)
+            }
             .task {
                 for await newValue in session.receiveStream {
                     counter.merge(newValue)
