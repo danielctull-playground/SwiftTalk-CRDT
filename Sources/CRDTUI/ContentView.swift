@@ -5,25 +5,43 @@ import SwiftUI
 
 public struct ContentView: View {
     public init() {}
-    
-    @StateObject private var session = MultipeerSession<GrowOnlyCounter<Int>>()
+
     @State private var int = GrowOnlyCounter(0)
+    @State private var online = true
 
     public var body: some View {
         VStack {
+            if online {
+                SessionView(counter: $int)
+            }
             Text("\(int.value)")
             Button("Increment") { int += 1 }
         }
-        .onChange(of: int) { newValue in
-            try! session.send(newValue)
-        }
-        .task {
-            for await newValue in session.receiveStream {
-                int.merge(newValue)
-            }
-        }
         .fixedSize()
         .padding()
+        .toolbar {
+            Toggle("Online", isOn: $online)
+        }
+    }
+}
+
+struct SessionView: View {
+
+    @StateObject private var session = MultipeerSession<GrowOnlyCounter<Int>>()
+    @Binding var counter: GrowOnlyCounter<Int>
+
+    var body: some View {
+        Circle()
+            .frame(width: 20, height: 20)
+            .foregroundColor(session.connected ? .green : .red)
+            .onChange(of: counter) { newValue in
+                try! session.send(newValue)
+            }
+            .task {
+                for await newValue in session.receiveStream {
+                    counter.merge(newValue)
+                }
+            }
     }
 }
 
