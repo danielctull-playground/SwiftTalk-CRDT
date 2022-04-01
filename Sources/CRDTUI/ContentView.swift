@@ -1,23 +1,24 @@
 
+import CRDTKit
 import Multipeer
 import SwiftUI
 
 public struct ContentView: View {
     public init() {}
     
-    @StateObject private var session = MultipeerSession<Int>()
-    @State private var value = 0
+    @StateObject private var session = MultipeerSession<Max<Int>>()
+    @State private var int = Max(value: 0)
 
     public var body: some View {
         VStack {
-            Stepper("\(value)", value: $value)
+            Stepper("\(int.value)", value: $int.value)
         }
-        .onChange(of: value) { newValue in
+        .onChange(of: int) { newValue in
             try! session.send(newValue)
         }
         .task {
             for await newValue in session.receiveStream {
-                value = newValue
+                int.merge(newValue)
             }
         }
         .fixedSize()
