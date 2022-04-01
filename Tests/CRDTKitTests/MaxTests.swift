@@ -5,9 +5,17 @@ import XCTest
 final class MaxTests: XCTestCase {
     
     func test() {
-        var a = Max(value: 1)
-        let b = Max(value: 2)
-        a.merge(b)
-        XCTAssertEqual(a.merging(b), b.merging(a))
+        for _ in 0..<1000 {
+            let a = Max(value: Int.random)
+            let b = Max(value: Int.random)
+            XCTAssertEqual(a.merging(b), b.merging(a))
+        }
+    }
+}
+
+extension Int {
+    
+    fileprivate static var random: Int {
+        .random(in: Int.min..<Int.max)
     }
 }
