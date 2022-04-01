@@ -11,7 +11,7 @@ import MultipeerConnectivity
 /// A multipeer session that automatically connects to anything it finds.
 public final class MultipeerSession<Message: Codable>: NSObject, ObservableObject, MCSessionDelegate, MCNearbyServiceAdvertiserDelegate, MCNearbyServiceBrowserDelegate {
     
-    @Published var connected = false
+    @Published public var connected = false
     
     private let serviceType = "objcio-dqs"
     private let peerID = MCPeerID(displayName: ProcessInfo.processInfo.hostName)
