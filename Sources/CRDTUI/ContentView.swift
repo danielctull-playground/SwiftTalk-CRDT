@@ -6,12 +6,13 @@ import SwiftUI
 public struct ContentView: View {
     public init() {}
     
-    @StateObject private var session = MultipeerSession<Max<Int>>()
-    @State private var int = Max(0)
+    @StateObject private var session = MultipeerSession<GrowOnlyCounter<Int>>()
+    @State private var int = GrowOnlyCounter(0)
 
     public var body: some View {
         VStack {
-            Stepper("\(int.value)", value: $int.value)
+            Text("\(int.value)")
+            Button("Increment") { int += 1 }
         }
         .onChange(of: int) { newValue in
             try! session.send(newValue)
