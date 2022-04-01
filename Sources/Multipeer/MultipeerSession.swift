@@ -20,7 +20,7 @@ public final class MultipeerSession<Message: Codable>: NSObject, ObservableObjec
     private let advertiser: MCNearbyServiceAdvertiser
     private let browser: MCNearbyServiceBrowser
     
-    private(set) var receiveStream: AsyncStream<Message>! = nil
+    public private(set) var receiveStream: AsyncStream<Message>! = nil
     private var onReceive: ((Data) -> ())?
     
     deinit {

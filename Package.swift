@@ -1,14 +1,14 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.6
 
 import PackageDescription
 
 let package = Package(
     name: "CRDT",
     platforms: [
-        .iOS(.v14),
-        .macOS(.v11),
-        .tvOS(.v14),
-        .watchOS(.v7),
+        .iOS(.v15),
+        .macOS(.v12),
+        .tvOS(.v15),
+        .watchOS(.v8),
     ],
     products: [
         .library(name: "CRDTKit", targets: ["CRDTKit"]),
@@ -25,6 +25,7 @@ let package = Package(
             name: "CRDTUI",
             dependencies: [
                 "CRDTKit",
+                "Multipeer",
             ]),
         
         .target(name: "Multipeer"),

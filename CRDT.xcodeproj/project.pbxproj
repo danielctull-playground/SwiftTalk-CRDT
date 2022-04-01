@@ -405,6 +405,7 @@
 			baseConfigurationReference = 24ABECE225600CDC003514FF /* iOS Application.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_NAME = CRDT;
 			};
 			name = Debug;
@@ -414,6 +415,7 @@
 			baseConfigurationReference = 24ABECE225600CDC003514FF /* iOS Application.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				PRODUCT_NAME = CRDT;
 			};
 			name = Release;
@@ -424,6 +426,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				INFOPLIST_FILE = macOS/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = CRDT;
 			};
 			name = Debug;
@@ -434,6 +437,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				INFOPLIST_FILE = macOS/Info.plist;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				PRODUCT_NAME = CRDT;
 			};
 			name = Release;
