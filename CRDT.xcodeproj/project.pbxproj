@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		24314EA724D7568600B06F9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24314E9124D7568600B06F9C /* Assets.xcassets */; };
+		243FE76B2566C51200E0C5D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 243FE7682566C50900E0C5D3 /* Assets.xcassets */; };
+		245938A72566C1D800A00FCB /* CRDTKit in Frameworks */ = {isa = PBXBuildFile; productRef = 245938A62566C1D800A00FCB /* CRDTKit */; };
+		245938A92566C1D800A00FCB /* CRDTUI in Frameworks */ = {isa = PBXBuildFile; productRef = 245938A82566C1D800A00FCB /* CRDTUI */; };
+		245938AB2566C1DD00A00FCB /* CRDTKit in Frameworks */ = {isa = PBXBuildFile; productRef = 245938AA2566C1DD00A00FCB /* CRDTKit */; };
+		245938AD2566C1DD00A00FCB /* CRDTUI in Frameworks */ = {isa = PBXBuildFile; productRef = 245938AC2566C1DD00A00FCB /* CRDTUI */; };
+		248590032566C3B500AFD40B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248590022566C3B500AFD40B /* App.swift */; };
+		2485900B2566C43400AFD40B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485900A2566C43200AFD40B /* App.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		24314E9124D7568600B06F9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		24314E9624D7568600B06F9C /* CRDT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CRDT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24314E9924D7568600B06F9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24314E9E24D7568600B06F9C /* CRDT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CRDT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24314EA024D7568600B06F9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24314EA124D7568600B06F9C /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		243FE7682566C50900E0C5D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		245938A32566C1CC00A00FCB /*  */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
+		248590022566C3B500AFD40B /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		2485900A2566C43200AFD40B /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		24ABECC125600CDC003514FF /* generate-version.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "generate-version.sh"; sourceTree = "<group>"; };
+		24ABECC325600CDC003514FF /* SPM Package Description.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "SPM Package Description.xcconfig"; sourceTree = "<group>"; };
+		24ABECC525600CDC003514FF /* macOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = macOS.xcconfig; sourceTree = "<group>"; };
+		24ABECC625600CDC003514FF /* macOS Command Line Tool.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS Command Line Tool.xcconfig"; sourceTree = "<group>"; };
+		24ABECC725600CDC003514FF /* macOS UI Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS UI Tests.xcconfig"; sourceTree = "<group>"; };
+		24ABECC825600CDC003514FF /* macOS Static Library.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS Static Library.xcconfig"; sourceTree = "<group>"; };
+		24ABECC925600CDC003514FF /* macOS Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS Application.xcconfig"; sourceTree = "<group>"; };
+		24ABECCA25600CDC003514FF /* macOS Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS Tests.xcconfig"; sourceTree = "<group>"; };
+		24ABECCB25600CDC003514FF /* macOS Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS Framework.xcconfig"; sourceTree = "<group>"; };
+		24ABECCC25600CDC003514FF /* macOS Extension.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS Extension.xcconfig"; sourceTree = "<group>"; };
+		24ABECCE25600CDC003514FF /* watchOS Extension.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS Extension.xcconfig"; sourceTree = "<group>"; };
+		24ABECCF25600CDC003514FF /* watchOS Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS Application.xcconfig"; sourceTree = "<group>"; };
+		24ABECD025600CDC003514FF /* watchOS Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "watchOS Framework.xcconfig"; sourceTree = "<group>"; };
+		24ABECD125600CDC003514FF /* watchOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = watchOS.xcconfig; sourceTree = "<group>"; };
+		24ABECD225600CDC003514FF /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		24ABECD325600CDC003514FF /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		24ABECD525600CDC003514FF /* Shared Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Shared Tests.xcconfig"; sourceTree = "<group>"; };
+		24ABECD625600CDC003514FF /* Shared Static Library.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Shared Static Library.xcconfig"; sourceTree = "<group>"; };
+		24ABECD725600CDC003514FF /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
+		24ABECD825600CDC003514FF /* Shared Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Shared Tests.plist"; sourceTree = "<group>"; };
+		24ABECD925600CDC003514FF /* Shared Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Shared Framework.xcconfig"; sourceTree = "<group>"; };
+		24ABECDA25600CDC003514FF /* Shared Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Shared Application.xcconfig"; sourceTree = "<group>"; };
+		24ABECDB25600CDC003514FF /* Shared Framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Shared Framework.plist"; sourceTree = "<group>"; };
+		24ABECDC25600CDC003514FF /* Shared UI Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Shared UI Tests.xcconfig"; sourceTree = "<group>"; };
+		24ABECDD25600CDC003514FF /* Shared Extension.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Shared Extension.xcconfig"; sourceTree = "<group>"; };
+		24ABECDF25600CDC003514FF /* iOS UI Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS UI Tests.xcconfig"; sourceTree = "<group>"; };
+		24ABECE025600CDC003514FF /* iOS Static Library.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Static Library.xcconfig"; sourceTree = "<group>"; };
+		24ABECE125600CDC003514FF /* iOS Extension.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Extension.xcconfig"; sourceTree = "<group>"; };
+		24ABECE225600CDC003514FF /* iOS Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Application.xcconfig"; sourceTree = "<group>"; };
+		24ABECE325600CDC003514FF /* iOS Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Tests.xcconfig"; sourceTree = "<group>"; };
+		24ABECE425600CDC003514FF /* iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = iOS.xcconfig; sourceTree = "<group>"; };
+		24ABECE525600CDC003514FF /* iOS Application.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS Application.plist"; sourceTree = "<group>"; };
+		24ABECE625600CDC003514FF /* iOS Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Framework.xcconfig"; sourceTree = "<group>"; };
+		24ABECE725600CDC003514FF /* iOS Bundle.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "iOS Bundle.xcconfig"; sourceTree = "<group>"; };
+		24ABECE825600CDC003514FF /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		24ABECEA25600CDC003514FF /* tvOS Application.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS Application.xcconfig"; sourceTree = "<group>"; };
+		24ABECEB25600CDC003514FF /* tvOS Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS Framework.xcconfig"; sourceTree = "<group>"; };
+		24ABECEC25600CDC003514FF /* tvOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = tvOS.xcconfig; sourceTree = "<group>"; };
+		24ABECED25600CDC003514FF /* tvOS Extension.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS Extension.xcconfig"; sourceTree = "<group>"; };
+		24ABECEE25600CDC003514FF /* tvOS UI Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS UI Tests.xcconfig"; sourceTree = "<group>"; };
+		24ABECEF25600CDC003514FF /* tvOS Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "tvOS Tests.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		24314E9324D7568600B06F9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				245938A92566C1D800A00FCB /* CRDTUI in Frameworks */,
+				245938A72566C1D800A00FCB /* CRDTKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24314E9B24D7568600B06F9C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				245938AD2566C1DD00A00FCB /* CRDTUI in Frameworks */,
+				245938AB2566C1DD00A00FCB /* CRDTKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		24314E8924D7568400B06F9C = {
+			isa = PBXGroup;
+			children = (
+				245938A32566C1CC00A00FCB /*  */,
+				24ABECC025600CDC003514FF /* Configurations */,
+				24314E9824D7568600B06F9C /* iOS */,
+				24314E9F24D7568600B06F9C /* macOS */,
+				24314E9724D7568600B06F9C /* Products */,
+				24314EB124D7591700B06F9C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		24314E9724D7568600B06F9C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				24314E9624D7568600B06F9C /* CRDT.app */,
+				24314E9E24D7568600B06F9C /* CRDT.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		24314E9824D7568600B06F9C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				248590022566C3B500AFD40B /* App.swift */,
+				243FE7682566C50900E0C5D3 /* Assets.xcassets */,
+				24314E9924D7568600B06F9C /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		24314E9F24D7568600B06F9C /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				2485900A2566C43200AFD40B /* App.swift */,
+				24314E9124D7568600B06F9C /* Assets.xcassets */,
+				24314EA024D7568600B06F9C /* Info.plist */,
+				24314EA124D7568600B06F9C /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		24314EB124D7591700B06F9C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		24ABECC025600CDC003514FF /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				24ABECC125600CDC003514FF /* generate-version.sh */,
+				24ABECC225600CDC003514FF /* SPM */,
+				24ABECC425600CDC003514FF /* macOS */,
+				24ABECCD25600CDC003514FF /* watchOS */,
+				24ABECD225600CDC003514FF /* Debug.xcconfig */,
+				24ABECD325600CDC003514FF /* Release.xcconfig */,
+				24ABECD425600CDC003514FF /* Shared */,
+				24ABECDE25600CDC003514FF /* iOS */,
+				24ABECE825600CDC003514FF /* .gitignore */,
+				24ABECE925600CDC003514FF /* tvOS */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		24ABECC225600CDC003514FF /* SPM */ = {
+			isa = PBXGroup;
+			children = (
+				24ABECC325600CDC003514FF /* SPM Package Description.xcconfig */,
+			);
+			path = SPM;
+			sourceTree = "<group>";
+		};
+		24ABECC425600CDC003514FF /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				24ABECC525600CDC003514FF /* macOS.xcconfig */,
+				24ABECC625600CDC003514FF /* macOS Command Line Tool.xcconfig */,
+				24ABECC725600CDC003514FF /* macOS UI Tests.xcconfig */,
+				24ABECC825600CDC003514FF /* macOS Static Library.xcconfig */,
+				24ABECC925600CDC003514FF /* macOS Application.xcconfig */,
+				24ABECCA25600CDC003514FF /* macOS Tests.xcconfig */,
+				24ABECCB25600CDC003514FF /* macOS Framework.xcconfig */,
+				24ABECCC25600CDC003514FF /* macOS Extension.xcconfig */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		24ABECCD25600CDC003514FF /* watchOS */ = {
+			isa = PBXGroup;
+			children = (
+				24ABECCE25600CDC003514FF /* watchOS Extension.xcconfig */,
+				24ABECCF25600CDC003514FF /* watchOS Application.xcconfig */,
+				24ABECD025600CDC003514FF /* watchOS Framework.xcconfig */,
+				24ABECD125600CDC003514FF /* watchOS.xcconfig */,
+			);
+			path = watchOS;
+			sourceTree = "<group>";
+		};
+		24ABECD425600CDC003514FF /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				24ABECD525600CDC003514FF /* Shared Tests.xcconfig */,
+				24ABECD625600CDC003514FF /* Shared Static Library.xcconfig */,
+				24ABECD725600CDC003514FF /* Shared.xcconfig */,
+				24ABECD825600CDC003514FF /* Shared Tests.plist */,
+				24ABECD925600CDC003514FF /* Shared Framework.xcconfig */,
+				24ABECDA25600CDC003514FF /* Shared Application.xcconfig */,
+				24ABECDB25600CDC003514FF /* Shared Framework.plist */,
+				24ABECDC25600CDC003514FF /* Shared UI Tests.xcconfig */,
+				24ABECDD25600CDC003514FF /* Shared Extension.xcconfig */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		24ABECDE25600CDC003514FF /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				24ABECDF25600CDC003514FF /* iOS UI Tests.xcconfig */,
+				24ABECE025600CDC003514FF /* iOS Static Library.xcconfig */,
+				24ABECE125600CDC003514FF /* iOS Extension.xcconfig */,
+				24ABECE225600CDC003514FF /* iOS Application.xcconfig */,
+				24ABECE325600CDC003514FF /* iOS Tests.xcconfig */,
+				24ABECE425600CDC003514FF /* iOS.xcconfig */,
+				24ABECE525600CDC003514FF /* iOS Application.plist */,
+				24ABECE625600CDC003514FF /* iOS Framework.xcconfig */,
+				24ABECE725600CDC003514FF /* iOS Bundle.xcconfig */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		24ABECE925600CDC003514FF /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				24ABECEA25600CDC003514FF /* tvOS Application.xcconfig */,
+				24ABECEB25600CDC003514FF /* tvOS Framework.xcconfig */,
+				24ABECEC25600CDC003514FF /* tvOS.xcconfig */,
+				24ABECED25600CDC003514FF /* tvOS Extension.xcconfig */,
+				24ABECEE25600CDC003514FF /* tvOS UI Tests.xcconfig */,
+				24ABECEF25600CDC003514FF /* tvOS Tests.xcconfig */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		24314E9524D7568600B06F9C /* iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24314EAA24D7568600B06F9C /* Build configuration list for PBXNativeTarget "iOS" */;
+			buildPhases = (
+				24314E9224D7568600B06F9C /* Sources */,
+				24314E9324D7568600B06F9C /* Frameworks */,
+				24314E9424D7568600B06F9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOS;
+			packageProductDependencies = (
+				245938A62566C1D800A00FCB /* CRDTKit */,
+				245938A82566C1D800A00FCB /* CRDTUI */,
+			);
+			productName = "CRDT (iOS)";
+			productReference = 24314E9624D7568600B06F9C /* CRDT.app */;
+			productType = "com.apple.product-type.application";
+		};
+		24314E9D24D7568600B06F9C /* macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24314EAD24D7568600B06F9C /* Build configuration list for PBXNativeTarget "macOS" */;
+			buildPhases = (
+				24314E9A24D7568600B06F9C /* Sources */,
+				24314E9B24D7568600B06F9C /* Frameworks */,
+				24314E9C24D7568600B06F9C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = macOS;
+			packageProductDependencies = (
+				245938AA2566C1DD00A00FCB /* CRDTKit */,
+				245938AC2566C1DD00A00FCB /* CRDTUI */,
+			);
+			productName = "CRDT (macOS)";
+			productReference = 24314E9E24D7568600B06F9C /* CRDT.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		24314E8A24D7568400B06F9C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					24314E9524D7568600B06F9C = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					24314E9D24D7568600B06F9C = {
+						CreatedOnToolsVersion = 12.0;
+					};
+				};
+			};
+			buildConfigurationList = 24314E8D24D7568400B06F9C /* Build configuration list for PBXProject "CRDT" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 24314E8924D7568400B06F9C;
+			productRefGroup = 24314E9724D7568600B06F9C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				24314E9524D7568600B06F9C /* iOS */,
+				24314E9D24D7568600B06F9C /* macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		24314E9424D7568600B06F9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				243FE76B2566C51200E0C5D3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24314E9C24D7568600B06F9C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24314EA724D7568600B06F9C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		24314E9224D7568600B06F9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				248590032566C3B500AFD40B /* App.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		24314E9A24D7568600B06F9C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2485900B2566C43400AFD40B /* App.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		24314EA824D7568600B06F9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24ABECD225600CDC003514FF /* Debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B2M757K4LG;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.danieltull.$(PROJECT_NAME:rfc1034identifier)-$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		24314EA924D7568600B06F9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24ABECD325600CDC003514FF /* Release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B2M757K4LG;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.danieltull.$(PROJECT_NAME:rfc1034identifier)-$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		24314EAB24D7568600B06F9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24ABECE225600CDC003514FF /* iOS Application.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = iOS/Info.plist;
+				PRODUCT_NAME = CRDT;
+			};
+			name = Debug;
+		};
+		24314EAC24D7568600B06F9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24ABECE225600CDC003514FF /* iOS Application.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = iOS/Info.plist;
+				PRODUCT_NAME = CRDT;
+			};
+			name = Release;
+		};
+		24314EAE24D7568600B06F9C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24ABECC925600CDC003514FF /* macOS Application.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				INFOPLIST_FILE = macOS/Info.plist;
+				PRODUCT_NAME = CRDT;
+			};
+			name = Debug;
+		};
+		24314EAF24D7568600B06F9C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24ABECC925600CDC003514FF /* macOS Application.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				INFOPLIST_FILE = macOS/Info.plist;
+				PRODUCT_NAME = CRDT;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		24314E8D24D7568400B06F9C /* Build configuration list for PBXProject "CRDT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24314EA824D7568600B06F9C /* Debug */,
+				24314EA924D7568600B06F9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24314EAA24D7568600B06F9C /* Build configuration list for PBXNativeTarget "iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24314EAB24D7568600B06F9C /* Debug */,
+				24314EAC24D7568600B06F9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24314EAD24D7568600B06F9C /* Build configuration list for PBXNativeTarget "macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24314EAE24D7568600B06F9C /* Debug */,
+				24314EAF24D7568600B06F9C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		245938A62566C1D800A00FCB /* CRDTKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CRDTKit;
+		};
+		245938A82566C1D800A00FCB /* CRDTUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CRDTUI;
+		};
+		245938AA2566C1DD00A00FCB /* CRDTKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CRDTKit;
+		};
+		245938AC2566C1DD00A00FCB /* CRDTUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CRDTUI;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 24314E8A24D7568400B06F9C /* Project object */;
+}
