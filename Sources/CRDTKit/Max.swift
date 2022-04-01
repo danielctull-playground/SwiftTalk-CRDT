@@ -7,7 +7,11 @@ public struct Max<Value: Comparable>: Equatable {
     }
     
     public mutating func merge(_ other: Self) {
-        value = max(value, other.value)
+        self = merging(other)
+    }
+    
+    public func merging(_ other: Self) -> Self {
+        Self(value: max(value, other.value))
     }
 }
 

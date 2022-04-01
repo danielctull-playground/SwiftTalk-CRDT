@@ -20,6 +20,12 @@ let package = Package(
     targets: [
 
         .target(name: "CRDTKit"),
+        
+        .testTarget(
+            name: "CRDTKitTests",
+            dependencies: [
+                "CRDTKit"
+            ]),
 
         .target(
             name: "CRDTUI",
