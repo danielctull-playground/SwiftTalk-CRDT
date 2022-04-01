@@ -2,7 +2,7 @@
 public struct Max<Value: Comparable>: Equatable {
     
     public var value: Value
-    public init(value: Value) {
+    public init(_ value: Value) {
         self.value = value
     }
     
@@ -11,7 +11,7 @@ public struct Max<Value: Comparable>: Equatable {
     }
     
     public func merging(_ other: Self) -> Self {
-        Self(value: max(value, other.value))
+        Self(max(value, other.value))
     }
 }
 

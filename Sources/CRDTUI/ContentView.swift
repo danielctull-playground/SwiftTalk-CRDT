@@ -7,7 +7,7 @@ public struct ContentView: View {
     public init() {}
     
     @StateObject private var session = MultipeerSession<Max<Int>>()
-    @State private var int = Max(value: 0)
+    @State private var int = Max(0)
 
     public var body: some View {
         VStack {
