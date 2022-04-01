@@ -13,6 +13,7 @@ let package = Package(
     products: [
         .library(name: "CRDTKit", targets: ["CRDTKit"]),
         .library(name: "CRDTUI", targets: ["CRDTUI"]),
+        .library(name: "Multipeer", targets: ["Multipeer"]),
     ],
     dependencies: [
     ],
@@ -25,5 +26,7 @@ let package = Package(
             dependencies: [
                 "CRDTKit",
             ]),
+        
+        .target(name: "Multipeer"),
     ]
 )
