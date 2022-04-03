@@ -41,10 +41,3 @@ final class MaxTests: XCTestCase {
         XCTAssertEqual(b.value, 11)
     }
 }
-
-extension Int {
-    
-    fileprivate static var random: Int {
-        .random(in: Int.min..<Int.max)
-    }
-}

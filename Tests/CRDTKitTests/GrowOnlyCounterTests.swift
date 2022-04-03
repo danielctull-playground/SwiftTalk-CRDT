@@ -17,10 +17,3 @@ final class GrowOnlyCounterTests: XCTestCase {
         XCTAssertEqual(b.value, 12)
     }
 }
-
-extension Int {
-
-    fileprivate static var random: Int {
-        .random(in: Int.min..<Int.max)
-    }
-}
