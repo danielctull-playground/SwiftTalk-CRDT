@@ -7,32 +7,63 @@ protocol Randomizable {
 }
 
 extension Int: Randomizable {
-    static var random: Int { .random(in: Int.min..<Int.max) }
+    // Limited to stop overflows on addition
+    static var random: Int { .random(in: -10_000..<10_000) }
 }
 
 extension CRDT where Self: Equatable & Randomizable {
 
     static func testCommutativity() {
-        for _ in 0..<1000 {
-            let a = Self.random
-            let b = Self.random
-            XCTAssertEqual(a.merging(b), b.merging(a))
-        }
+        testCommutativity(equating: \.self)
     }
 
     static func testIdempotency() {
-        for _ in 0..<1000 {
-            let a = Self.random
-            XCTAssertEqual(a.merging(a), a)
-        }
+        testIdempotency(equating: \.self)
     }
 
     static func testAssociativity() {
+        testAssociativity(equating: \.self)
+    }
+}
+
+extension CRDT where Self: Randomizable {
+
+    static func testCommutativity<Value: Equatable>(
+        equating value: KeyPath<Self, Value>
+    ) {
+        for _ in 0..<1000 {
+            let a = Self.random
+            let b = Self.random
+            XCTAssertEqual(
+                a.merging(b)[keyPath: value],
+                b.merging(a)[keyPath: value]
+            )
+        }
+    }
+
+    static func testIdempotency<Value: Equatable>(
+        equating value: KeyPath<Self, Value>
+    ) {
+        for _ in 0..<1000 {
+            let a = Self.random
+            XCTAssertEqual(
+                a.merging(a)[keyPath: value],
+                a[keyPath: value]
+            )
+        }
+    }
+
+    static func testAssociativity<Value: Equatable>(
+        equating value: KeyPath<Self, Value>
+    ) {
         for _ in 0..<1000 {
             let a = Self.random
             let b = Self.random
             let c = Self.random
-            XCTAssertEqual(a.merging(b).merging(c), a.merging(b.merging(c)))
+            XCTAssertEqual(
+                a.merging(b).merging(c)[keyPath: value],
+                a.merging(b.merging(c))[keyPath: value]
+            )
         }
     }
 }

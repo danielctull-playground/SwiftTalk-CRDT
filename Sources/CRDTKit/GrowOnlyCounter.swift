@@ -15,7 +15,7 @@ public struct GrowOnlyCounter<Value: Comparable & AdditiveArithmetic>: Equatable
     }
 
     public var value: Value {
-        storage.values.reduce(.zero) { $0 +  $1.value }
+        storage.values.reduce(.zero) { $0 + $1.value }
     }
 
     public static func +=(lhs: inout Self, rhs: Value) {
