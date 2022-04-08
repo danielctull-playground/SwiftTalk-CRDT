@@ -2,7 +2,18 @@
 import Foundation
 
 public struct SiteID: Equatable, Hashable, Codable {
-    private var rawValue = UUID()
+    private let rawValue: String
+
+    init() {
+        rawValue = UUID().uuidString
+    }
+}
+
+extension SiteID: ExpressibleByStringLiteral {
+
+    public init(stringLiteral: String) {
+        rawValue = stringLiteral
+    }
 }
 
 public struct GrowOnlyCounter<Value: Comparable & AdditiveArithmetic>: Equatable {
