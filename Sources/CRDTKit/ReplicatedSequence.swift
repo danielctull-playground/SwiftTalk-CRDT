@@ -8,7 +8,13 @@ public struct ReplicatedSequence<Value> {
     public init(site: SiteID) {
         self.site = site
     }
+
+    public init() {
+        self.init(site: SiteID())
+    }
 }
+
+extension ReplicatedSequence: Equatable where Value: Equatable {}
 
 extension ReplicatedSequence: CRDT {
 
@@ -71,6 +77,8 @@ public struct Node<Value> {
     let value: Value
     var children: [Node<Value>] = []
 }
+
+extension Node: Equatable where Value: Equatable {}
 
 extension Node: CRDT {
 

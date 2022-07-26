@@ -50,4 +50,22 @@ final class ReplicatedSequenceTests: XCTestCase {
         XCTAssertEqual(siteA.elements, siteB.elements)
         XCTAssertEqual(String(siteA.elements), "abefcd")
     }
+
+    func testLaws() {
+        ReplicatedSequence<Int>.testCommutativity(equating: \.elements)
+        ReplicatedSequence<Int>.testAssociativity(equating: \.elements)
+        ReplicatedSequence<Int>.testIdempotency(equating: \.elements)
+    }
+}
+
+extension ReplicatedSequence: Randomizable where Value == Int {
+
+    static var random: ReplicatedSequence<Int> {
+        let count = Int.random(in: 1...10)
+        var sequence = ReplicatedSequence()
+        for index in 0...count {
+            sequence.insert(Int.random, at: index)
+        }
+        return sequence
+    }
 }
