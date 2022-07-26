@@ -10,6 +10,14 @@ public struct ReplicatedSequence<Value> {
     }
 }
 
+extension ReplicatedSequence: CRDT {
+
+    public mutating func merge(_ other: Self) {
+        root.merge(other: other.root)
+        clock = Swift.max(clock, other.clock)
+    }
+}
+
 extension ReplicatedSequence {
 
     public mutating func insert(_ value: Value, at index: Int) {
@@ -50,11 +58,26 @@ struct NodeID: Equatable {
     let time: Int
 }
 
+extension NodeID: Comparable {
+
+    static func < (lhs: NodeID, rhs: NodeID) -> Bool {
+        (lhs.time, lhs.site) < (rhs.time, rhs.site)
+    }
+}
+
 
 public struct Node<Value> {
     let id: NodeID
     let value: Value
     var children: [Node<Value>] = []
+}
+
+extension Node: CRDT {
+
+    public mutating func merge(_ other: Node<Value>) {
+        assert(id == other.id)
+        children.merge(other: other.children)
+    }
 }
 
 extension Node {
@@ -67,5 +90,20 @@ extension Node {
                 children[i].insert(node, after: parent)
             }
         }
+    }
+}
+
+extension Array {
+
+    mutating func merge<Value>(other: [Node<Value>]) where Element == Node<Value> {
+
+        for element in other {
+            if let index = firstIndex(where: { $0.id == element.id }) {
+                self[index].merge(element)
+            } else {
+                append(element)
+            }
+        }
+        sort(by: { $0.id > $1.id })
     }
 }

@@ -9,6 +9,13 @@ public struct SiteID: Equatable, Hashable, Codable {
     }
 }
 
+extension SiteID: Comparable {
+
+    public static func < (lhs: SiteID, rhs: SiteID) -> Bool {
+        lhs.rawValue < rhs.rawValue
+    }
+}
+
 extension SiteID: ExpressibleByStringLiteral {
 
     public init(stringLiteral: String) {
