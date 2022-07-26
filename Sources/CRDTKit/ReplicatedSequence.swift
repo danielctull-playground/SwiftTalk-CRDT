@@ -2,7 +2,7 @@
 public struct ReplicatedSequence<Element> {
 
     private let site: SiteID
-    var root: [Node<Element>] = []
+    var root: [Node] = []
     var clock = 0
 
     public init(site: SiteID) {
@@ -47,7 +47,7 @@ extension ReplicatedSequence {
 
 extension ReplicatedSequence: Sequence {
 
-    public func makeIterator() -> AnyIterator<Node<Element>> {
+    public func makeIterator() -> AnyIterator<Node> {
         var remainder = root
 
         return AnyIterator {
@@ -58,6 +58,8 @@ extension ReplicatedSequence: Sequence {
         }
     }
 }
+
+// MARK: - NodeID
 
 struct NodeID: Equatable {
     let site: SiteID
@@ -71,24 +73,28 @@ extension NodeID: Comparable {
     }
 }
 
+// MARK: - Node
 
-public struct Node<Element> {
-    let id: NodeID
-    let value: Element
-    var children: [Node<Element>] = []
+extension ReplicatedSequence {
+
+    public struct Node {
+        let id: NodeID
+        let value: Element
+        var children: [Node] = []
+    }
 }
 
-extension Node: Equatable where Element: Equatable {}
+extension ReplicatedSequence.Node: Equatable where Element: Equatable {}
 
-extension Node: CRDT {
+extension ReplicatedSequence.Node: CRDT {
 
-    public mutating func merge(_ other: Node<Element>) {
+    public mutating func merge(_ other: Self) {
         assert(id == other.id)
         children.merge(other: other.children)
     }
 }
 
-extension Node {
+extension ReplicatedSequence.Node {
 
     mutating func insert(_ node: Self, after parent: NodeID) {
         if id == parent {
@@ -103,7 +109,9 @@ extension Node {
 
 extension Array {
 
-    mutating func merge<Value>(other: [Node<Value>]) where Element == Node<Value> {
+    mutating func merge<Value>(
+        other: [ReplicatedSequence<Value>.Node]
+    ) where Element == ReplicatedSequence<Value>.Node {
 
         for element in other {
             if let index = firstIndex(where: { $0.id == element.id }) {
