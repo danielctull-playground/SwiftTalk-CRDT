@@ -58,7 +58,7 @@ final class ReplicatedSequenceTests: XCTestCase {
     }
 }
 
-extension ReplicatedSequence: Randomizable where Value == Int {
+extension ReplicatedSequence: Randomizable where Element == Int {
 
     static var random: ReplicatedSequence<Int> {
         let count = Int.random(in: 1...10)

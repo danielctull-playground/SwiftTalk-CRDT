@@ -1,8 +1,8 @@
 
-public struct ReplicatedSequence<Value> {
+public struct ReplicatedSequence<Element> {
 
     private let site: SiteID
-    var root: [Node<Value>] = []
+    var root: [Node<Element>] = []
     var clock = 0
 
     public init(site: SiteID) {
@@ -14,7 +14,7 @@ public struct ReplicatedSequence<Value> {
     }
 }
 
-extension ReplicatedSequence: Equatable where Value: Equatable {}
+extension ReplicatedSequence: Equatable where Element: Equatable {}
 
 extension ReplicatedSequence: CRDT {
 
@@ -26,7 +26,7 @@ extension ReplicatedSequence: CRDT {
 
 extension ReplicatedSequence {
 
-    public mutating func insert(_ value: Value, at index: Int) {
+    public mutating func insert(_ value: Element, at index: Int) {
         let node = Node(id: NodeID(site: site, time: clock), value: value)
         if index == 0 {
             root.insert(node, at: 0)
@@ -40,14 +40,14 @@ extension ReplicatedSequence {
         clock += 1
     }
 
-    public var elements: [Value] {
+    public var elements: [Element] {
         map { $0.value }
     }
 }
 
 extension ReplicatedSequence: Sequence {
 
-    public func makeIterator() -> AnyIterator<Node<Value>> {
+    public func makeIterator() -> AnyIterator<Node<Element>> {
         var remainder = root
 
         return AnyIterator {
@@ -72,17 +72,17 @@ extension NodeID: Comparable {
 }
 
 
-public struct Node<Value> {
+public struct Node<Element> {
     let id: NodeID
-    let value: Value
-    var children: [Node<Value>] = []
+    let value: Element
+    var children: [Node<Element>] = []
 }
 
-extension Node: Equatable where Value: Equatable {}
+extension Node: Equatable where Element: Equatable {}
 
 extension Node: CRDT {
 
-    public mutating func merge(_ other: Node<Value>) {
+    public mutating func merge(_ other: Node<Element>) {
         assert(id == other.id)
         children.merge(other: other.children)
     }
