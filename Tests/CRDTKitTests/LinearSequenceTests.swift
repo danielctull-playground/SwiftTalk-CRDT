@@ -45,6 +45,17 @@ final class LinearSequenceTests: XCTestCase {
 
         XCTAssertEqual(siteA.elements, siteB.elements)
         XCTAssertEqual(String(siteA.elements), "abcdef")
+
+        siteA.remove(at: 4)
+        siteB.remove(at: 5)
+        siteA.insert("g", at: 4)
+        siteB.insert("h", at: 4)
+
+        siteA.merge(siteB)
+        siteB.merge(siteA)
+
+        XCTAssertEqual(siteA.elements, siteB.elements)
+        XCTAssertEqual(String(siteA.elements), "abcdgh")
     }
 
     func testLaws() {

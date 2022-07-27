@@ -31,7 +31,7 @@ extension LinearSequence: CRDT {
         for existingIndex in _elements[index...].indices {
             let existing = _elements[existingIndex]
             if existing.id == node.id {
-                // TODO: Safety checks
+                _elements[existingIndex].merge(node)
                 return
             }
             if existing.id < node.id {
@@ -78,5 +78,14 @@ extension LinearSequence {
         let id: NodeID
         let value: Element
         var deleted = false
+    }
+}
+
+extension LinearSequence.Node {
+
+    fileprivate mutating func merge(_ other: Self) {
+        assert(parent == other.parent)
+        assert(id == other.id)
+        deleted = deleted || other.deleted
     }
 }
