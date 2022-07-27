@@ -1,4 +1,5 @@
 
+import CRDTKit
 import SwiftUI
 
 struct Todo: Codable, Identifiable {
@@ -8,7 +9,7 @@ struct Todo: Codable, Identifiable {
 }
 
 struct TodoList: View {
-    @Binding var model: [Todo]
+    @Binding var model: LinearSequence<Todo>
     @State var newItem = ""
 
     var body: some View {
@@ -17,11 +18,11 @@ struct TodoList: View {
                 .onSubmit {
                     add()
                 }
-            List($model) { $todo in
+            List(model.elements) { todo in
                 HStack {
-                    Toggle("Done", isOn: $todo.done)
+                    Toggle("Done", isOn: .constant(todo.done))
                         .toggleStyle(.checkbox)
-                    TextField("Title", text: $todo.title)
+                    TextField("Title", text: .constant(todo.title))
                 }
                 .labelsHidden()
             }
@@ -34,9 +35,11 @@ struct TodoList: View {
     }
 }
 
+let site = SiteID()
+
 public struct ContentView: View {
     public init() {}
-    @State var model: [Todo] = []
+    @State var model = LinearSequence<Todo>(site: site)
     public var body: some View {
         TodoList(model: $model)
     }

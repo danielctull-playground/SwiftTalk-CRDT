@@ -4,7 +4,7 @@ import Foundation
 public struct SiteID: Equatable, Hashable, Codable {
     private let rawValue: String
 
-    init() {
+    public init() {
         rawValue = UUID().uuidString
     }
 }
