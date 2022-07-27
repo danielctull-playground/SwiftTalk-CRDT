@@ -29,6 +29,7 @@ struct TodoList: View {
             List(model) { todo in
                 HStack {
                     Toggle("Done", isOn: .constant(todo.done))
+                        .toggleStyle(.checkmark)
                     TextField("Title", text: .constant(todo.title))
                 }
                 .labelsHidden()
