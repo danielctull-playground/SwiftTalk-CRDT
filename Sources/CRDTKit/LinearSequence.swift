@@ -115,6 +115,11 @@ extension LinearSequence: BidirectionalCollection {
 
 extension LinearSequence: RandomAccessCollection {}
 
+extension LinearSequence: Decodable where Element: Decodable {}
+extension LinearSequence: Encodable where Element: Encodable {}
+extension LinearSequence: Equatable where Element: Equatable {}
+extension LinearSequence: Hashable where Element: Hashable {}
+
 // MARK: - Node
 
 extension LinearSequence {
@@ -126,6 +131,11 @@ extension LinearSequence {
         var deleted = false
     }
 }
+
+extension LinearSequence.Node: Decodable where Element: Decodable {}
+extension LinearSequence.Node: Encodable where Element: Encodable {}
+extension LinearSequence.Node: Equatable where Element: Equatable {}
+extension LinearSequence.Node: Hashable where Element: Hashable {}
 
 extension LinearSequence.Node {
 

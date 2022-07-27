@@ -1,8 +1,9 @@
 
 import CRDTKit
 import SwiftUI
+import MultipeerUI
 
-struct Todo: Codable, Identifiable {
+struct Todo: Equatable, Codable, Identifiable {
     var id = UUID()
     var done: Bool = false
     var title: String
@@ -11,9 +12,16 @@ struct Todo: Codable, Identifiable {
 struct TodoList: View {
     @Binding var model: LinearSequence<Todo>
     @State var newItem = ""
+    @State var online = true
 
     var body: some View {
         VStack {
+            HStack {
+                Toggle("Online", isOn: $online)
+                if online {
+                    SessionView(model: $model)
+                }
+            }
             TextField("New Item", text: $newItem)
                 .onSubmit {
                     add()
@@ -21,7 +29,6 @@ struct TodoList: View {
             List(model) { todo in
                 HStack {
                     Toggle("Done", isOn: .constant(todo.done))
-                        .toggleStyle(.checkbox)
                     TextField("Title", text: .constant(todo.title))
                 }
                 .labelsHidden()

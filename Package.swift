@@ -41,6 +41,7 @@ let package = Package(
             dependencies: [
                 "CRDTKit",
                 "Multipeer",
+                "MultipeerUI",
             ]),
 
         .target(name: "Multipeer"),

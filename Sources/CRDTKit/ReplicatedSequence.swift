@@ -73,6 +73,10 @@ extension NodeID: Comparable {
     }
 }
 
+extension NodeID: Decodable {}
+extension NodeID: Encodable {}
+extension NodeID: Hashable {}
+
 // MARK: - Node
 
 extension ReplicatedSequence {
