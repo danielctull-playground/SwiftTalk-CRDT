@@ -64,8 +64,41 @@ extension LinearSequence {
         clock += 1
     }
 
-    public var elements: [Element] {
-        _elements.lazy.filter { !$0.deleted }.map(\.value)
+    public var elements: [Element] { Array(self) }
+}
+
+extension LinearSequence: Collection {
+
+    public struct Index: Comparable {
+        fileprivate let internalIndex: Int
+        public static func < (lhs: Self, rhs: Self) -> Bool {
+            lhs.internalIndex < rhs.internalIndex
+        }
+    }
+
+    public var startIndex: Index {
+
+        guard let index = _elements.firstIndex(where: { !$0.deleted }) else {
+            return endIndex
+        }
+
+        return Index(internalIndex: index)
+    }
+
+    public var endIndex: Index {
+        Index(internalIndex: _elements.endIndex)
+    }
+
+    public func index(after i: Index) -> Index {
+        if let index = _elements[(i.internalIndex + 1)...].firstIndex(where: { !$0.deleted }) {
+            return Index(internalIndex: index)
+        } else {
+            return endIndex
+        }
+    }
+
+    public subscript(position: Index) -> Element {
+        _elements[position.internalIndex].value
     }
 }
 
