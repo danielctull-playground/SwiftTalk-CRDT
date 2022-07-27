@@ -1,5 +1,5 @@
 
-public struct LinearSequence<Element> {
+public struct LinearSequence<Element: CRDT> {
     let site: SiteID
     var _elements: [Node] = []
     var clock: Int = 0
@@ -67,7 +67,7 @@ extension LinearSequence {
     public var elements: [Element] { Array(self) }
 }
 
-extension LinearSequence: Collection {
+extension LinearSequence: MutableCollection {
 
     public struct Index: Comparable {
         fileprivate let internalIndex: Int
@@ -98,7 +98,12 @@ extension LinearSequence: Collection {
     }
 
     public subscript(position: Index) -> Element {
-        _elements[position.internalIndex].value
+        get {
+            _elements[position.internalIndex].value
+        }
+        set {
+            _elements[position.internalIndex].value = newValue
+        }
     }
 }
 
@@ -127,7 +132,7 @@ extension LinearSequence {
     struct Node {
         let parent: NodeID?
         let id: NodeID
-        let value: Element
+        var value: Element
         var deleted = false
     }
 }
@@ -143,5 +148,6 @@ extension LinearSequence.Node {
         assert(parent == other.parent)
         assert(id == other.id)
         deleted = deleted || other.deleted
+        value.merge(other.value)
     }
 }

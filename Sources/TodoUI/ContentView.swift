@@ -5,8 +5,17 @@ import MultipeerUI
 
 struct Todo: Equatable, Codable, Identifiable {
     var id = UUID()
-    var done: Bool = false
+    var done = LastWriteWins(site: site, false)
     var title: String
+}
+
+extension Todo: CRDT {
+
+    mutating func merge(_ other: Todo) {
+        assert(id == other.id)
+        assert(id == other.id)
+        done.merge(other.done)
+    }
 }
 
 struct TodoList: View {
@@ -26,11 +35,11 @@ struct TodoList: View {
                 .onSubmit {
                     add()
                 }
-            List(model) { todo in
+            List($model) { $todo in
                 HStack {
-                    Toggle("Done", isOn: .constant(todo.done))
+                    Toggle("Done", isOn: $todo.done.value)
                         .toggleStyle(.checkmark)
-                    TextField("Title", text: .constant(todo.title))
+                    TextField("Title", text: $todo.title)
                 }
                 .labelsHidden()
             }
