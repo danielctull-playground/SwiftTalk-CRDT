@@ -4,15 +4,20 @@ import XCTest
 
 final class LinearSequenceTests: XCTestCase {
 
-    func testInsert() {
+    func testSingleSite() {
         for _ in 0...1000 {
             var sequence = LinearSequence<Int>(site: "SiteA")
             var array = Array<Int>()
             for _ in 1...Int.random(in: 1...10) {
-                let index = Int.random(in: 0...array.count)
-                let value = Int.random
-                sequence.insert(value, at: index)
-                array.insert(value, at: index)
+                if let index = array.indices.randomElement(), Int.random(in: 1...4) == 1 {
+                    sequence.remove(at: index)
+                    array.remove(at: index)
+                } else {
+                    let index = Int.random(in: 0...array.count)
+                    let value = Int.random
+                    sequence.insert(value, at: index)
+                    array.insert(value, at: index)
+                }
                 XCTAssertEqual(sequence.elements, array)
             }
         }

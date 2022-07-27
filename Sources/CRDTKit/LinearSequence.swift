@@ -45,8 +45,19 @@ extension LinearSequence: CRDT {
 
 extension LinearSequence {
 
+    private var nonDeletedIndices: [Int] {
+        _elements.indices.filter { !_elements[$0].deleted }
+    }
+
+    public mutating func remove(at index: Int) {
+        let nonDeletedIndices = _elements.indices.filter { !_elements[$0].deleted }
+        _elements[nonDeletedIndices[index]].deleted = true
+    }
+
     public mutating func insert(_ value: Element, at index: Int) {
-        let parent = index > 0 ? _elements[index - 1].id : nil
+        let parent = index > 0
+            ? _elements[nonDeletedIndices[index - 1]].id
+            : nil
         let id = NodeID(site: site, time: clock)
         let node = Node(parent: parent, id: id, value: value)
         _insert(node)
@@ -54,7 +65,7 @@ extension LinearSequence {
     }
 
     public var elements: [Element] {
-        _elements.map(\.value)
+        _elements.lazy.filter { !$0.deleted }.map(\.value)
     }
 }
 
@@ -66,5 +77,6 @@ extension LinearSequence {
         let parent: NodeID?
         let id: NodeID
         let value: Element
+        var deleted = false
     }
 }
