@@ -1,5 +1,5 @@
 
-import CRDTUI
+import TodoUI
 import SwiftUI
 
 @main

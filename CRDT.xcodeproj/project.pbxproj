@@ -15,6 +15,8 @@
 		245938AD2566C1DD00A00FCB /* CRDTUI in Frameworks */ = {isa = PBXBuildFile; productRef = 245938AC2566C1DD00A00FCB /* CRDTUI */; };
 		248590032566C3B500AFD40B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248590022566C3B500AFD40B /* App.swift */; };
 		2485900B2566C43400AFD40B /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485900A2566C43200AFD40B /* App.swift */; };
+		6528B59B289125530062B511 /* TodoUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6528B59A289125530062B511 /* TodoUI */; };
+		6528B59D2891255A0062B511 /* TodoUI in Frameworks */ = {isa = PBXBuildFile; productRef = 6528B59C2891255A0062B511 /* TodoUI */; };
 		6560035627F73D71004FDA2E /* Multipeer in Frameworks */ = {isa = PBXBuildFile; productRef = 6560035527F73D71004FDA2E /* Multipeer */; };
 		6560035827F73D76004FDA2E /* Multipeer in Frameworks */ = {isa = PBXBuildFile; productRef = 6560035727F73D76004FDA2E /* Multipeer */; };
 /* End PBXBuildFile section */
@@ -80,6 +82,7 @@
 			files = (
 				6560035827F73D76004FDA2E /* Multipeer in Frameworks */,
 				245938A92566C1D800A00FCB /* CRDTUI in Frameworks */,
+				6528B59B289125530062B511 /* TodoUI in Frameworks */,
 				245938A72566C1D800A00FCB /* CRDTKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +93,7 @@
 			files = (
 				6560035627F73D71004FDA2E /* Multipeer in Frameworks */,
 				245938AD2566C1DD00A00FCB /* CRDTUI in Frameworks */,
+				6528B59D2891255A0062B511 /* TodoUI in Frameworks */,
 				245938AB2566C1DD00A00FCB /* CRDTKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +266,7 @@
 				245938A62566C1D800A00FCB /* CRDTKit */,
 				245938A82566C1D800A00FCB /* CRDTUI */,
 				6560035727F73D76004FDA2E /* Multipeer */,
+				6528B59A289125530062B511 /* TodoUI */,
 			);
 			productName = "CRDT (iOS)";
 			productReference = 24314E9624D7568600B06F9C /* CRDT.app */;
@@ -284,6 +289,7 @@
 				245938AA2566C1DD00A00FCB /* CRDTKit */,
 				245938AC2566C1DD00A00FCB /* CRDTUI */,
 				6560035527F73D71004FDA2E /* Multipeer */,
+				6528B59C2891255A0062B511 /* TodoUI */,
 			);
 			productName = "CRDT (macOS)";
 			productReference = 24314E9E24D7568600B06F9C /* CRDT.app */;
@@ -404,8 +410,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24ABECE225600CDC003514FF /* iOS Application.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 27;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_NAME = CRDT;
 			};
 			name = Debug;
@@ -414,8 +423,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24ABECE225600CDC003514FF /* iOS Application.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 27;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_NAME = CRDT;
 			};
 			name = Release;
@@ -424,9 +436,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24ABECC925600CDC003514FF /* macOS Application.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CURRENT_PROJECT_VERSION = 27;
 				INFOPLIST_FILE = macOS/Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_NAME = CRDT;
 			};
 			name = Debug;
@@ -435,9 +450,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24ABECC925600CDC003514FF /* macOS Application.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CURRENT_PROJECT_VERSION = 27;
 				INFOPLIST_FILE = macOS/Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_NAME = CRDT;
 			};
 			name = Release;
@@ -490,6 +508,14 @@
 		245938AC2566C1DD00A00FCB /* CRDTUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CRDTUI;
+		};
+		6528B59A289125530062B511 /* TodoUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TodoUI;
+		};
+		6528B59C2891255A0062B511 /* TodoUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TodoUI;
 		};
 		6560035527F73D71004FDA2E /* Multipeer */ = {
 			isa = XCSwiftPackageProductDependency;
