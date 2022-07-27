@@ -102,6 +102,19 @@ extension LinearSequence: Collection {
     }
 }
 
+extension LinearSequence: BidirectionalCollection {
+
+    public func index(before i: Index) -> Index {
+        if let index = _elements[..<i.internalIndex].lastIndex(where: { !$0.deleted }) {
+            return Index(internalIndex: index)
+        } else {
+            return startIndex
+        }
+    }
+}
+
+extension LinearSequence: RandomAccessCollection {}
+
 // MARK: - Node
 
 extension LinearSequence {

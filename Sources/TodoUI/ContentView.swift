@@ -18,7 +18,7 @@ struct TodoList: View {
                 .onSubmit {
                     add()
                 }
-            List(model.elements) { todo in
+            List(model) { todo in
                 HStack {
                     Toggle("Done", isOn: .constant(todo.done))
                         .toggleStyle(.checkbox)
